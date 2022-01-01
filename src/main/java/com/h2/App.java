@@ -15,7 +15,7 @@ public class App
     public static int doubleTheNumber(int number) {
         return 2 * number;
     }
-    public static int add(int[] numbers){
+    private static int add(int[] numbers){
         var sum = 0;
 
         for (int number: numbers) {
