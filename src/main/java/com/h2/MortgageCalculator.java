@@ -1,7 +1,7 @@
 package com.h2;
 
 public class MortgageCalculator {
-    private long loanAmount = 100;
+    private long loanAmount;
     private int termInYears;
     private float annualRate;
     private double monthlyPayment;
@@ -13,6 +13,19 @@ public class MortgageCalculator {
 
     }
     private int getNumberOfPayments(){
-        return 0;
+        return termInYears * 12;
+    }
+    private float getMonthlyInterestRate(){
+        float interestRate = annualRate;
+
+        return interestRate / 12;
+    }
+    public void calculateMonthlyPayment(){
+        long P = loanAmount;
+        float r = getMonthlyInterestRate();
+        int n = getNumberOfPayments();
+
+        double M = P * (((r * Math.pow(1 + r, n))) / ((Math.pow((1 + r), n)) - 1));
+        this.monthlyPayment = M;
     }
 }
